@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; UTF-8">
+<title>draging mark</title>
+</head>
+<body>
+
+<div>Securty Code: </div>
+<br/>
+<canvas id="securtyCodeField" width="150" height="50"></canvas>
+<br/><br/>
+<button onclick="change()">Change Code</button>
+
+
+<script type="text/javascript" language="javascript">
+
+var  islem;
+function example(){
+    islem = document.getElementById("securtyCodeField").getContext("2d");
+    islem.fillStyle = "#6cd57";
+    change();
+}
+function change(){
+    var text = "";
+    for(var baslangic = 0; baslangic<6; baslangic++){
+        var rastgeledeger = Math.random();
+        if(Math.round(rastgeledeger) == 0){
+            text += String.fromCharCode(48+9 * Math.random());
+        }else{
+            text += String.fromCharCode(65+25 * Math.random());
+        }
+    }
+    islem.clearRect(0, 0, 150, 50);
+    islem.fillRect(0, 0, 150, 50);
+    islem.font = "30px calibri";
+    islem.strokeText(text,24,34);
+}
+
+
+
+</script>
+</body>
+</html>
